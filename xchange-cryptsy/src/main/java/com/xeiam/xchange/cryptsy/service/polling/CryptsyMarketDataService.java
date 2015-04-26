@@ -42,9 +42,6 @@ public class CryptsyMarketDataService extends CryptsyMarketDataServiceRaw implem
 
   @Override
   public OrderBook getOrderBook(CurrencyPair currencyPair, Object... args) throws IOException, ExchangeException {
-	  if(currencyPair.baseSymbol.equals("USD") || currencyPair.counterSymbol.equals("USD")){
-		  return new OrderBook(null, new ArrayList<LimitOrder>(), new ArrayList<LimitOrder>());
-	  }
 	  
     CryptsyOrderBookReturn orderBookReturnData = super.getCryptsyOrderBook(CryptsyCurrencyUtils.convertToMarketId(currencyPair));
 
